@@ -1,0 +1,36 @@
+{
+  "name": "nft-hack-contracts",
+  "version": "1.0.0",
+  "description": "Smart Contracts associated with the creator rewards app",
+  "scripts": {
+    "test": "npx hardhat test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "chai": "^4.3.0",
+    "dotenv": "^8.2.0",
+    "ethereum-waffle": "^3.2.2",
+    "ethers": "^5.0.30",
+    "hardhat": "^2.0.10",
+    "husky": "^5.1.3",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "sort-package-json": "^1.49.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.4.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier --write"
+    ]
+  }
+}
