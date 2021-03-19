@@ -26,6 +26,7 @@ const NavButton = forwardRef(
 
     return (
       <a
+        //@ts-ignore
         ref={ref}
         href={href}
         className={

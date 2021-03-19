@@ -1,6 +1,6 @@
 .navButtonActive {
   border-radius: 15px;
-  background: #212121;
+  background: var(--on-primary);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   font-style: normal;
@@ -12,7 +12,7 @@
   text-align: center;
   justify-content: center;
 
-  color: #eaf4f6;
+  color: var(--primary);
   width: 103px;
   height: 30px;
   margin: 0 10px;
@@ -28,7 +28,7 @@
   justify-content: center;
   text-align: center;
 
-  color: #212121;
+  color: var(--on-primary);
   height: 30px;
   margin: 0 10px;
   width: 103px;
@@ -42,5 +42,5 @@
   align-items: center;
   justify-content: center;
   padding: 0 20px;
-  background: #eaf4f6;
+  background: var(--primary);
 }
