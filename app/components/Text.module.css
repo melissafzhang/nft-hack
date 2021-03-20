@@ -1,0 +1,30 @@
+.body {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.largeBody {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 20px;
+}
+.smallBody {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.onBackground {
+  color: var(--on-background);
+}
+.onBackgroundLight {
+  color: var(--on-background-light);
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}

@@ -8,9 +8,13 @@ body {
   --primary: #eaf4f6;
   --background: #000000;
   --on-background: #ffffff;
-  --on-baground-light: #8a8a8f;
+  --on-background-light: #8a8a8f;
   --background-light: #212121;
   --on-primary: #212121;
+  --xsmall: 5px;
+  --small: 10px;
+  --medium: 20px;
+  --large: 30px;
 }
 
 a {
