@@ -1,0 +1,28 @@
+.sm {
+  width: var(--small);
+}
+.xs {
+  width: var(--xsmall);
+}
+
+.xsHorizontal {
+  height: var(--xsmall);
+}
+.smHorizontal {
+  height: var(--small);
+}
+
+.md {
+  width: var(--medium);
+}
+
+.mdHorizontal {
+  height: var(--medium);
+}
+
+.lg {
+  width: var(--large);
+}
+.lgHorizontal {
+  height: var(--large);
+}

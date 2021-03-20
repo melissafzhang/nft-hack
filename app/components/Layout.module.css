@@ -9,8 +9,12 @@
 
 .layout {
   max-width: 594px;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   width: 100%;
+  border: var(--on-background-light) solid 2px;
+  border-top: none;
+  border-bottom: none;
+  align-items: center;
 }

@@ -16,22 +16,6 @@
   margin-bottom: 16px;
 }
 
-.coin {
-  width: 28px;
-  height: 28px;
-  border: var(--on-primary) solid 1px;
-  border-radius: 28px;
-  display: flex;
-  overflow: hidden;
-  margin: 0 5px;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .coinAmount {
   font-style: normal;
   font-weight: bold;

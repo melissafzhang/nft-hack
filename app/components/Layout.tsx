@@ -4,8 +4,10 @@ import NavBar from "./NavBar";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className={styles.page}>
-      <NavBar />
-      <div className={styles.layout}>{children}</div>
+      <div className={styles.layout}>
+        <NavBar />
+        {children}
+      </div>
     </div>
   );
 }
