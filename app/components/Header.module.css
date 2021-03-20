@@ -1,0 +1,45 @@
+.header {
+  background: var(--primary);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+  color: var(--on-primary);
+  margin-bottom: 16px;
+}
+
+.coin {
+  width: 28px;
+  height: 28px;
+  border: var(--on-primary) solid 1px;
+  border-radius: 28px;
+  display: flex;
+  overflow: hidden;
+  margin: 0 5px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coinAmount {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+
+  color: var(--on-primary);
+}

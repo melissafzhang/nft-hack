@@ -1,0 +1,46 @@
+.navButtonActive {
+  border-radius: 15px;
+  background: var(--on-primary);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  color: var(--primary);
+  width: 103px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.navButtonInactive {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  color: var(--on-primary);
+  height: 30px;
+  margin: 0 10px;
+  width: 103px;
+}
+
+.navBar {
+  width: 100%;
+  height: 57px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  background: var(--primary);
+}

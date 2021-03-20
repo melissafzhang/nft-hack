@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
-import useLogin from "../../hooks/useLogin.js";
+import useLogin from "../../hooks/useLogin";
 export default function Login() {
   const [login, loading] = useLogin();
   return (

@@ -4,6 +4,13 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  --primary: #eaf4f6;
+  --background: #000000;
+  --on-background: #ffffff;
+  --on-baground-light: #8a8a8f;
+  --background-light: #212121;
+  --on-primary: #212121;
 }
 
 a {

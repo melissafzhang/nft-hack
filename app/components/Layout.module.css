@@ -1,0 +1,16 @@
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--background-light);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.layout {
+  max-width: 594px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
