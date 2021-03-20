@@ -48,7 +48,7 @@ export default function ReferralModule({
               Or share via...
             </Body>
             <HSpace size="sm" />
-            <SocialShare />
+            <SocialShare shareUrl={link} />
           </div>
           <VSpace size="sm" />
           <div className={styles.numReferralsContainer}>

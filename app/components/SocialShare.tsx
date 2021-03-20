@@ -1,19 +1,23 @@
 import styles from "./SocialShare.module.css";
-export default function SocialShare({
-  shareText,
-  ogImage,
-  ogDescription,
-}: {
-  shareText: string;
-  ogImage: string;
-  ogDescription: string;
-}) {
+import {
+  EmailShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
+import HSpace from "./HSpace";
+export default function SocialShare({ shareUrl }: { shareUrl: string }) {
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
       <SocialIcon type="sms" />
-      <SocialIcon type="email" />
-      <SocialIcon type="twitter" />
-      <SocialIcon type="whatsApp" />
+      <EmailShareButton url={shareUrl}>
+        <SocialIcon type="email" />
+      </EmailShareButton>
+      <TwitterShareButton url={shareUrl}>
+        <SocialIcon type="twitter" />
+      </TwitterShareButton>
+      <WhatsappShareButton url={shareUrl}>
+        <SocialIcon type="whatsApp" />
+      </WhatsappShareButton>
     </div>
   );
 }
@@ -27,6 +31,7 @@ const SocialIcon = ({ type }: { type: SocialType }) => {
       <div className={styles.iconContainer}>
         <img src={`/images/${type}.png`} className={styles.icon} />
       </div>
+      <HSpace size="xs" />
       <div className={styles.text}>{getSocialName(type)}</div>
     </div>
   );
