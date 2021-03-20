@@ -1,4 +1,24 @@
-export default function useReferralLink(): [string, number, boolean] {
-  // fetch referral link from server
-  return ["https://share.name.com/mattt", 10, false];
+import { createContext, useContext } from "react";
+import apiUrl from "../utils/apiUrl";
+export const ReferralContext = createContext({ link: "", numReferrals: 0 });
+
+export default function useReferralLink(): {
+  link: string;
+  numReferrals: number;
+} {
+  return useContext(ReferralContext);
+}
+
+export async function fetchReferrals(context) {
+  const creatorId = context.params.id;
+  const response = await fetch(
+    `${apiUrl}/api/referral?creator_rally_id=${creatorId}`
+  );
+  const data = await response.json();
+  return {
+    props: {
+      link: data.link,
+      numReferrals: data.num_referrals || 0,
+    },
+  };
 }
