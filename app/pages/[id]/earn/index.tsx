@@ -8,7 +8,7 @@ import { EarnOption as EarnOptionType } from "../../../types";
 import { useState } from 'react'
 import { useSession } from 'next-auth/client'
 import SignIn from "../../../components/SignIn";
-
+import ReferralModule from "../../../components/ReferralModule";
 
 export default function Earn() {
   const [ session, loading ] = useSession()
@@ -32,12 +32,12 @@ export default function Earn() {
   );
 }
 
-const EarnOption = ({ type, amount }: EarnOptionType) => {
+const EarnOption = ({ type, amount, currency }: EarnOptionType) => {
   switch (type) {
     case "subscribe":
       return <SubscribeModule amount={amount} />;
     case "referral":
-      return null;
+      return <ReferralModule amount={amount} currency={currency} />;
     default:
       return null;
   }
