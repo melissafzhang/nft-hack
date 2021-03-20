@@ -4,27 +4,29 @@ import Link from "next/link";
 
 export default function Home() {
 
-  function Form() {
-  const registerUser = async event => {
-    event.preventDefault()
+    const registerUser = async event => {
+      event.preventDefault()
+      
+      const res = await fetch(
+        '/api/subscribe',
+        {
+          body: JSON.stringify({
+            Email: event.target.email.value,
+            Subscibe: "2",
+            userid: "7",
+            creatorid: "7",
+            referralcode: "12345"
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          method: 'POST'
+        }
+      )
 
-    const res = await fetch(
-      'https://hooks.zapier.com/hooks/catch/123456/abcde',
-      {
-        body: JSON.stringify({
-          name: event.target.name.value
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        method: 'POST'
-      }
-    )
-
-    const result = await res.json()
-    // result.user => 'Ada Lovelace'
-  }
-}
+      const result = await res.json();
+      console.log(result);
+    }
 
 
   return (
@@ -38,14 +40,10 @@ export default function Home() {
         <h4 className={styles.title}>Subscribe</h4>
         <p>50 $MATT for joining</p>
         <form onSubmit={registerUser}>
-          <label htmlFor="name">Name</label>
-          <input id="name" name="name" type="text" autoComplete="name" required />
+          <label htmlFor="Email">Email</label>
+          <input id="email" name="email" type="text" autoComplete="email" required />
           <button type="submit">Register</button>
         </form>
-
-
-
-
       </main>
     </div>
   );
