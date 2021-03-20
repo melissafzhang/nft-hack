@@ -5,17 +5,29 @@ import Header from "../../../components/Header";
 import useEarnInfo from "../../../hooks/useEarnInfo";
 import SubscribeModule from "../../../components/SubscribeModule";
 import { EarnOption as EarnOptionType } from "../../../types";
+import { useState } from 'react'
+import { useSession } from 'next-auth/client'
+import SignIn from "../../../components/SignIn";
 import ReferralModule from "../../../components/ReferralModule";
+
 export default function Earn() {
+  const [ session, loading ] = useSession()
+  const [ content , setContent ] = useState()
+
+
+  
+  if (typeof window !== 'undefined' && loading) return null
+  
   const router = useRouter();
   const { id } = router.query;
   const info = useEarnInfo();
   return (
     <Layout>
       <Header title="Ways to Earn" />
-      {info.map((i) => (
+      {session ? info.map((i) => (
         <EarnOption {...i} />
-      ))}
+      )) : <SignIn/>}
+      
     </Layout>
   );
 }
