@@ -3,8 +3,10 @@ import Image from 'next/image';
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 
+import SocialShare from '../../components/Socialshare'
 
-export default function Home() {
+
+export default function Subscribe() {
 
     const registerUser = async event => {
       event.preventDefault()
@@ -49,26 +51,6 @@ export default function Home() {
         </form>
         </div>
 
-
-        <br/>
-        <h5>Refer a friend</h5>
-        <p>50 $MATT for joining</p>
-        <div className = "earn-card">
-          <label htmlFor="refurl">referral url: </label>
-          <input value= 'https://refer-matt.com' id="refurl" name="refurl" type="text" autoComplete="refurl" required />
-          <h6>Or share via..</h6>
-          <div class="centered">
-
-            <section class="cards">
-
-                <img src = '/public/images/email.svg'/>
-                <img src = '/public/images/twitter.svg'/>
-                <img src = '/public/images/whatsApp.svg'/>
-                <img src = '/public/images/sms.svg'/>
-
-            </section>
-</div>
-        </div>
       </main>
     </div>
   );
