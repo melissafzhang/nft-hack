@@ -1,11 +1,10 @@
-import React, { createContext } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import Layout from "../../../components/Layout";
 import Header from "../../../components/Header";
 import useEarnInfo from "../../../hooks/useEarnInfo";
 import SubscribeModule from "../../../components/SubscribeModule";
 import { EarnOption as EarnOptionType } from "../../../types";
-import { useState } from "react";
 import { useSession } from "next-auth/client";
 import SignIn from "../../../components/SignIn";
 import ReferralModule from "../../../components/ReferralModule";
@@ -18,7 +17,6 @@ export default function Earn({
   numReferrals: number;
 }) {
   const [session, loading] = useSession();
-  const [content, setContent] = useState();
 
   if (typeof window !== "undefined" && loading) return null;
 
@@ -29,10 +27,7 @@ export default function Earn({
     <Layout>
       <ReferralContext.Provider value={{ link, numReferrals }}>
         <Header title="Ways to Earn" />
-        {/* {session ? info.map((i) => <EarnOption {...i} />) : <SignIn />} */}
-        {info.map((i) => (
-          <EarnOption {...i} />
-        ))}
+        {session ? info.map((i) => <EarnOption {...i} />) : <SignIn />}
       </ReferralContext.Provider>
     </Layout>
   );
