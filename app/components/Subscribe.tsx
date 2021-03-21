@@ -1,9 +1,11 @@
 import Head from "next/head";
 import Image from 'next/image';
-import styles from "../../styles/Home.module.css";
 import Link from "next/link";
-
-import SocialShare from '../../components/Socialshare'
+import Body from "./Body";
+import ContainerStyles from "./LightModule.module.css";
+import HSpace from "./HSpace";
+import VSpace from "./VSpace";
+import CreatorCoinIcon from "./CreatorCoinIcon";
 
 
 export default function Subscribe() {
@@ -33,25 +35,34 @@ export default function Subscribe() {
     }
 
 
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    return (
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <HSpace size="sm" />
+        <div
+          style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+        >
+          <Body size="body" type="onBackground">
+            ✨
+          </Body>
+          <VSpace size="xs" />
+          <CreatorCoinIcon size="small" hasShadow />
+          <VSpace size="xs" />
 
-      <main className={styles.main}>
-        <h5>Subscribe</h5>
-        <p>50 $MATT for subscribing</p>
-        <div className = "earn-card">
-        <form onSubmit={registerUser}>
-          <label htmlFor="Email">Email</label>
-          <input id="email" name="email" type="text" autoComplete="email" required />
-          <button type="submit">Subscribe</button>
-        </form>
         </div>
+        <HSpace size="sm" />
+        <div className={ContainerStyles.container}>
 
-      </main>
-    </div>
-  );
+          <h4 style={{ color: 'white' }}>Subscribe</h4>
+          <p style={{ color: 'white' }}>50 $MATT for subscribing</p>
+          <div className = "earn-card">
+          <form onSubmit={registerUser}>
+            <label style={{ color: 'white' }} htmlFor="Email">Email </label><br/>
+            <br/>
+            <input id="email" name="email" type="text" autoComplete="email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    );
 }
