@@ -8,7 +8,7 @@ import VSpace from "./VSpace";
 import CreatorCoinIcon from "./CreatorCoinIcon";
 
 
-export default function Subscribe() {
+export default function Subscribe({url}) {
 
     const registerUser = async event => {
       event.preventDefault()
@@ -20,7 +20,7 @@ export default function Subscribe() {
             Email: event.target.email.value,
             Subscibe: "2",
             userid: "7",
-            creatorid: "7",
+            creatorid: url.query.id,
             referralcode: "12345"
           }),
           headers: {
