@@ -6,7 +6,7 @@ export default function CopyInput({ text }: { text: string }) {
   console.log("hasCopied", hasCopied);
   return (
     <div className={styles.copyInput}>
-      <input value={text} className={styles.input} />
+      <input value={text} className={styles.input} /> 
       <img onClick={copy} className={styles.copyIcon} src="/images/copy.png" />
     </div>
   );
