@@ -11,13 +11,13 @@ contract BaseCreatorRewards is ERC1155PresetMinterPauser, Ownable {
     constructor() public ERC1155PresetMinterPauser("https://creator.rewards/api/item/{id}.json") {
     }
 
-    function createItem(address user, uint256 initialSupply) external onlyOwner {
+    function createItem(address user, uint256 initialSupply) external {
         itemId.increment();
         uint256 newItemId = itemId.current();
         _mint(user, newItemId, initialSupply, "");
     }
 
-    function mintBatchItems(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data) public onlyOwner {
+    function mintBatchItems(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data) public {
         _mintBatch(to, ids, amounts, data);
     }
 }
