@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import useLogin from "../../hooks/useLogin";
-import { providers, signIn } from 'next-auth/client';
+import { providers, signIn } from "next-auth/client";
 
 export default function Login() {
   const [login, loading] = useLogin();
@@ -17,7 +17,12 @@ export default function Login() {
         {loading ? (
           <span>Loading...</span>
         ) : (
-          <button onClick={login}>Log in with Rally</button>
+          <button
+            //@ts-ignore
+            onClick={login}
+          >
+            Log in with Rally
+          </button>
         )}
       </main>
     </div>
