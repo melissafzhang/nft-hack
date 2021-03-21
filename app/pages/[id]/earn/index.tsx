@@ -5,29 +5,30 @@ import Header from "../../../components/Header";
 import useEarnInfo from "../../../hooks/useEarnInfo";
 import SubscribeModule from "../../../components/SubscribeModule";
 import { EarnOption as EarnOptionType } from "../../../types";
-import { useState } from 'react'
-import { useSession } from 'next-auth/client'
+import { useSession } from "next-auth/client";
 import SignIn from "../../../components/SignIn";
 import ReferralModule from "../../../components/ReferralModule";
+import { ReferralContext, fetchReferrals } from "../../../hooks/useReferrals";
+export default function Earn({
+  link,
+  numReferrals,
+}: {
+  link: string;
+  numReferrals: number;
+}) {
+  const [session, loading] = useSession();
 
-export default function Earn() {
-  const [ session, loading ] = useSession()
-  const [ content , setContent ] = useState()
+  if (typeof window !== "undefined" && loading) return null;
 
-
-  
-  if (typeof window !== 'undefined' && loading) return null
-  
   const router = useRouter();
   const { id } = router.query;
   const info = useEarnInfo();
   return (
     <Layout>
-      <Header title="Ways to Earn" />
-      {session ? info.map((i) => (
-        <EarnOption {...i} />
-      )) : <SignIn/>}
-      
+      <ReferralContext.Provider value={{ link, numReferrals }}>
+        <Header title="Ways to Earn" />
+        {session ? info.map((i) => <EarnOption {...i} />) : <SignIn />}
+      </ReferralContext.Provider>
     </Layout>
   );
 }
@@ -42,3 +43,5 @@ const EarnOption = ({ type, amount, currency }: EarnOptionType) => {
       return null;
   }
 };
+
+export { fetchReferrals as getServerSideProps };

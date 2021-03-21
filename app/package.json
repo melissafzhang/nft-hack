@@ -8,12 +8,21 @@
     "start": "next start"
   },
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.21.1",
+=======
+    "airtable": "^0.10.1",
+    "cookies": "^0.8.0",
+>>>>>>> main
     "next": "10.0.9",
     "next-auth": "^3.13.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-share": "^4.4.0",
+<<<<<<< HEAD
+=======
+    "shortid": "^2.2.16",
+>>>>>>> main
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
