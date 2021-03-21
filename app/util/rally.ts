@@ -1,5 +1,16 @@
 const axios = require('axios').default;
+var util = require('util');
 const callback_url = "http://95.217.122.163:3000/api/auth/callback/rally";
+
+axios.interceptors.request.use(request => {
+  console.log('Starting Request', util.inspect(request))
+  return request
+})
+
+axios.interceptors.response.use(response => {
+  console.log('Response:', util.inspect(response.data))
+  return response
+})
 
 const getRallyDetails = async () => {
   return (await axios.post('https://api.rally.io/v1/oauth/register', {
@@ -14,6 +25,7 @@ const toConfig = (headers) => {
 
 const httpPost = async (url, body, headers) => {
   try {
+    console.log(toConfig(headers));
     return await axios.post(url, body, toConfig(headers));
   } catch (err) {
     return err.response;
@@ -59,13 +71,14 @@ class RallyAuth {
       throw new Error("Application not registered")
     }
     console.log("Calling Rally IO authorize API");
+    console.log(RallyAuth.access_token);
     const rally_response = await httpPost(
-      "https://api.rally.io/oauth/authorize",
+      "https://api.rally.io/v1/oauth/authorize",
       { callback: callback_url },
       { Authorization: "Bearer " + RallyAuth.access_token }
     );
-
     const status = rally_response.status;
+    console.log(`rally_response = ${JSON.stringify(rally_response.data)}`);
     if (status == 200) {
       console.log(`redirecting to ${rally_response.data.url}`);
       return rally_response.data.url;
@@ -84,7 +97,7 @@ class RallyAuth {
         throw new Error("No authorization to continue");
       }
       const rally_response = await httpPost(
-        "https://api.rally.io/oauth/userinfo",
+        "https://api.rally.io/v1/oauth/userinfo",
         { code },
         { Authorization: "Bearer " + RallyAuth.access_token }
       );
