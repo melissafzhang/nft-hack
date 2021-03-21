@@ -4,20 +4,25 @@ export default async function handler(req, res) {
   const params = req.query;
 
   if (!params.code) {
-    return res.redirect(301, "/");
+    return res.status(200).json({ redirect_url: `/` });
   }
   const code = params.code;
   console.log(params.code);
   if (req.method === "GET") {
     const codes = await db("ReferralCode")
       .select({
-        filterByFormula: `{referralcode}="${code}"`,
+        filterByFormula: `referral_code="${code}"`,
       })
       .all();
+    console.log("codes", codes);
     if (codes.length === 0) {
-      return res.redirect(301, "/");
+      console.log("redirect");
+      return res.status(200).json({ redirect_url: `/` });
     }
     const creatorId = codes[0].get("creator_rally_id");
-    return res.redirect(301, `/${creatorId}/earn`);
+    console.log("creatorId", creatorId);
+    return res
+      .status(200)
+      .json({ redirect_url: `/${creatorId}/earn`, valid_code: true });
   }
 }

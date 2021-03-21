@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import apiUrl from "../../../utils/apiUrl";
+import Cookies from "cookies";
 
 export default function InviteCode() {
   const router = useRouter();
@@ -12,9 +12,16 @@ export default function InviteCode() {
 
 export async function getServerSideProps(context) {
   const code = context.params.code;
-  await fetch(`${apiUrl}/api/invite?code=${code}`);
+  const response = await fetch(`${apiUrl}/api/invite?code=${code}`);
+  const data = await response.json();
+  const cookies = new Cookies(context.req, context.res);
 
+  if (data.valid_code) cookies.set("referral_code", code);
   return {
+    redirect: {
+      permanent: true,
+      destination: data.redirect_url,
+    },
     props: {},
   };
 }
