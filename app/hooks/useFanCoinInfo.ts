@@ -1,7 +1,7 @@
 export default function useFanCoinInfo() {
   return {
     coinImageUrl:
-      "https://conditionedminds.com/wp-content/uploads/2014/10/Matthew-Alston.jpg",
+      "http://localhost:3000/images/$matt.jpg",
     amount: 1242,
     currency: "$MATT",
   };

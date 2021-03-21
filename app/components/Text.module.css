@@ -5,6 +5,10 @@
   line-height: 18px;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .largeBody {
   font-style: normal;
   font-weight: bold;
