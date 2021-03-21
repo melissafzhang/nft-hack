@@ -11,6 +11,7 @@ export default function useReferrals(): {
 
 export async function fetchReferrals(context) {
   const creatorId = context.params.id;
+  console.log("API_URL", apiUrl);
   const response = await fetch(
     `${apiUrl}/api/referral?creator_rally_id=${creatorId}`
   );

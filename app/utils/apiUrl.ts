@@ -1,3 +1,5 @@
 const dev = process.env.NODE_ENV !== "production";
-
-export default dev ? "http://localhost:3000" : process.env.VERCEL_URL;
+console.log("VERCEL_URL", process.env.VERCEL_URL);
+export default dev
+  ? "http://localhost:3000"
+  : "https://" + process.env.VERCEL_URL;
