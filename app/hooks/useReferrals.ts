@@ -18,7 +18,7 @@ export async function fetchReferrals(context) {
   const data = await response.json();
   return {
     props: {
-      link: data.link,
+      link: data.link || "",
       numReferrals: data.num_referrals || 0,
     },
   };

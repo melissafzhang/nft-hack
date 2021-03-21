@@ -11,7 +11,7 @@ export default function Header({ title }: { title: string }) {
         <VSpace size="xs" />
         <CreatorCoinIcon size="medium" />
         <VSpace size="xs" />
-        <span className={styles.coinAmount}>{info.amount}</span>
+        <span className={styles.coinAmount}>{info.amount} Tokens</span>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+require("@nomiclabs/hardhat-etherscan");
 require("@nomiclabs/hardhat-waffle");
 require("dotenv").config();
 task("accounts", "Prints the list of accounts", async () => {
@@ -42,6 +43,9 @@ module.exports = {
         mnemonic: process.env.SEED,
       },
     },
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_KEY,
   },
   mocha: {
     timeout: 180000,
