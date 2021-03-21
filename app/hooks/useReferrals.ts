@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 import apiUrl from "../utils/apiUrl";
 export const ReferralContext = createContext({ link: "", numReferrals: 0 });
 
-export default function useReferralLink(): {
+export default function useReferrals(): {
   link: string;
   numReferrals: number;
 } {
