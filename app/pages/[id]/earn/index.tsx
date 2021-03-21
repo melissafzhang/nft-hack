@@ -29,7 +29,10 @@ export default function Earn({
     <Layout>
       <ReferralContext.Provider value={{ link, numReferrals }}>
         <Header title="Ways to Earn" />
-        {session ? info.map((i) => <EarnOption {...i} />) : <SignIn />}
+        {/* {session ? info.map((i) => <EarnOption {...i} />) : <SignIn />} */}
+        {info.map((i) => (
+          <EarnOption {...i} />
+        ))}
       </ReferralContext.Provider>
     </Layout>
   );
