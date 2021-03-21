@@ -1,5 +1,4 @@
 import useReferrals from "../hooks/useReferrals";
-import useFanCoinInfo from "../hooks/useFanCoinInfo";
 import CopyInput from "./CopyInput";
 
 import Body from "./Body";
@@ -16,7 +15,7 @@ export default function ReferralModule({
   amount: number;
   currency: string;
 }) {
-  const [link, numReferrals, isLoading] = useReferrals();
+  const { link, numReferrals } = useReferrals();
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Body size="largeBody" type="onBackground">
