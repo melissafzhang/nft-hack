@@ -5,9 +5,8 @@ import generateReferralCode from "../../utils/generateReferralCode";
 export default async function handler(req, res) {
   const session = await getSession({ req });
   const params = req.query;
-  // if (!session) return res.status(401).json({});
-  // const user_rally_id = session.user.rally_id;
-  const user_rally_id = "1111";
+  if (!session) return res.status(401).json({});
+  const user_rally_id = session.user.rally_id as string;
   if (!params.creator_rally_id) {
     return res.status(500).json({ message: "Missing creator_rally_id" });
   }
