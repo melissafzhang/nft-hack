@@ -111,6 +111,4 @@ class RallyAuth {
   }
 }
 
-
-
 export default RallyAuth;
