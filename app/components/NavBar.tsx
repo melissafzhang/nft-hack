@@ -10,10 +10,10 @@ export default function NavBar() {
   return (
     <div className={styles.navBar}>
       <Link href={`/${query.id}/earn`} passHref>
-        <NavButton name="Earn"></NavButton>
+        <NavButton href={`/${query.id}/earn`} name="Earn"></NavButton>
       </Link>
       <Link href={`/${query.id}/rewards`} passHref>
-        <NavButton name="Rewards"></NavButton>
+        <NavButton href={`/${query.id}/rewards`} name="Rewards"></NavButton>
       </Link>
     </div>
   );
